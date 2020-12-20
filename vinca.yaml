@@ -1,0 +1,92 @@
+ros_distro: noetic
+mutex_package: ros-distro-mutex 0.1 noetic
+
+# mapping for package keys
+conda_index:
+  - conda-forge.yaml
+  - packages-ignore.yaml
+
+build_number: 3
+
+skip_all_deps: false
+
+packages_skip_by_deps:
+  # - rviz
+  # - diagnostic_updater
+
+packages_remove_from_deps:
+  - stage-ros
+  - stage
+
+skip_existing:
+  - https://conda.anaconda.org/robostack/
+
+packages_select_by_deps:
+  ##
+  #  TODO Win
+  ##
+  - python-qt-binding
+  # - desktop
+  - cnpy
+
+  # - velodyne_driver  # probably too tricky to build
+  # - velodyne_pointcloud  # depends on velodyne_driver
+
+  # - slam_toolbox
+
+  # - libfranka  # that builds okay but there is a linker error in the tests so they are disabled for now
+
+  ##
+  # DONE Win
+  ##
+  # - teb_local_planner
+  # - franka_hw
+  # - franka_visualization
+  # - moveit
+  # - octomap
+  # - rqt_rviz
+  # - rqt_image_view
+  # - rqt_gui_cpp
+  # - desktop
+  # - desktop_full
+  # - perception
+  # - ros_control
+  # - rosbridge_suite
+  # - class_loader
+  # - ros_controllers
+  # - perception_pcl
+  # - joy
+  # - robot_localization
+  # - velodyne_laserscan
+  # - velodyne_msgs
+  # - imu_tools
+  # - rviz_visual_tools
+  # - franka_msgs
+  # - franka_description
+  # - velodyne_pcl
+  # - moveit
+  # - plotjuggler
+
+  ##
+  # Not bother Win
+  ##
+  # - urg_node
+
+  ##
+  # NOT RELEASED ON NOETIC...
+  ##
+  # - turtlebot3
+  # - turtlebot3_fake
+  # - tf2_web_republisher
+  # - franka_ros
+  # - franka_example_controllers
+  # - niryo_one_simulation
+
+  ##
+  # PROBLEMS:
+  ##
+  # - rtabmap_ros  # openni is missing, and need to find names for
+    # {'libfreenect-dev', 'libopenni-dev', 'tango-icon-theme', 'libvtk-qt'}
+  # - behavior_tree  # isn't released?
+
+patch_dir: patch
